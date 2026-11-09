@@ -1,0 +1,381 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Me alegra coincidir contigo ♡</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Playfair+Display:ital,wght@0,400;1,500&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #100a19;
+    color: #eee0f0;
+    font-family: 'Cormorant Garamond', serif;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+body::before {
+    content: "♡";
+    position: fixed;
+    top: 10%;
+    left: 8%;
+    font-size: 100px;
+    color: #8c285d;
+    opacity: .08;
+    pointer-events: none;
+}
+
+.portada {
+    min-height: 95vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.etiqueta {
+    color: #c56c9b;
+    letter-spacing: 5px;
+    font-size: 12px;
+    margin-bottom: 25px;
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(38px, 8vw, 65px);
+    font-weight: normal;
+    color: #e5c1e8;
+    margin-bottom: 20px;
+}
+
+.subtitulo {
+    color: #b69ac8;
+    font-size: 20px;
+    font-style: italic;
+    margin-bottom: 35px;
+}
+
+button {
+    background: linear-gradient(120deg, #512052, #922b50);
+    color: white;
+    border: 1px solid #c05b89;
+    padding: 14px 35px;
+    font-family: inherit;
+    font-size: 19px;
+    cursor: pointer;
+    transition: .4s;
+}
+
+button:hover {
+    transform: scale(1.06);
+    box-shadow: 0 0 25px #a12d7555;
+}
+
+.carta {
+    display: none;
+    max-width: 750px;
+    margin: 30px auto;
+    padding: clamp(22px, 6vw, 55px);
+    background: linear-gradient(145deg, #1c1229, #29121f);
+    border: 1px solid #713657;
+    box-shadow: 0 0 40px #70234b40;
+    animation: aparecer 1.3s ease;
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fecha {
+    text-align: right;
+    color: #c58eb3;
+    font-style: italic;
+    font-size: 18px;
+}
+
+.separador {
+    text-align: center;
+    color: #ce648e;
+    font-size: 25px;
+    margin: 30px 0;
+}
+
+.titulo {
+    font-family: 'Playfair Display', serif;
+    text-align: center;
+    font-size: 38px;
+    font-weight: normal;
+    color: #e6b9d8;
+    margin-bottom: 35px;
+}
+
+.mensaje {
+    font-size: 22px;
+    line-height: 1.9;
+    white-space: pre-line;
+    color: #e8dbea;
+}
+
+.resaltado {
+    color: #ed91b4;
+    font-style: italic;
+}
+
+.galeria {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+    margin: 45px 0;
+}
+
+.foto {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border: 2px solid #854266;
+    padding: 5px;
+    background: #291a35;
+}
+
+.pie-foto {
+    text-align: center;
+    color: #c995bd;
+    font-size: 17px;
+    font-style: italic;
+    margin-top: 10px;
+}
+
+.musica {
+    background: #28172e;
+    border: 1px solid #914463;
+    padding: 28px 20px;
+    text-align: center;
+    margin: 45px 0;
+}
+
+.musica h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    color: #eab8d5;
+    margin-bottom: 10px;
+}
+
+.musica p {
+    color: #c5a3ca;
+    font-size: 18px;
+}
+
+audio {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.firma {
+    text-align: right;
+    font-size: 26px;
+    font-style: italic;
+    color: #e6a1c6;
+    margin-top: 45px;
+}
+
+.final {
+    text-align: center;
+    color: #d45e91;
+    font-size: 30px;
+    margin-top: 35px;
+}
+
+.nota {
+    text-align: center;
+    color: #a987b2;
+    font-size: 17px;
+    font-style: italic;
+    margin-top: 15px;
+}
+
+@media(max-width: 500px) {
+    .galeria {
+        grid-template-columns: 1fr;
+    }
+
+    .foto {
+        height: 280px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- PORTADA -->
+
+<section class="portada" id="portada">
+
+    <p class="etiqueta">UNA PEQUEÑA DEDICATORIA</p>
+
+    <h1>Me alegra coincidir contigo.</h1>
+
+    <p class="subtitulo">
+        Hay personas que hacen bonito el tiempo.
+    </p>
+
+    <button onclick="abrirCarta()">
+        Abrir mi carta ♡
+    </button>
+
+</section>
+
+
+<!-- CARTA -->
+
+<main class="carta" id="carta">
+
+    <p class="fecha">Para alguien especial ♡</p>
+
+    <div class="separador">✦ · · · ✦</div>
+
+    <h2 class="titulo">Para ti.</h2>
+
+
+    <!-- MENSAJE -->
+
+    <div class="mensaje">
+
+No sé muy bien cómo comenzar esta carta, pero supongo que lo más bonito sería empezar dándote las gracias.
+
+Gracias por tu amistad, por cada conversación, por los momentos que hemos compartido y, sobre todo, por el tiempo que has decidido dedicarme.
+
+Sé que no llevamos demasiado tiempo conociéndonos, que todavía hay muchísimas cosas que no sabemos el uno del otro y un montón de historias que aún no hemos tenido oportunidad de compartir, pero eso no hace que aprecie menos tu presencia.
+
+Me parece curioso cómo alguien a quien conoces desde hace relativamente poco puede comenzar a ocupar un lugar tan bonito en tus días. A veces no hacen falta años para encontrar personas con las que resulta agradable coincidir, conversar y simplemente ser uno mismo.
+
+Quiero que sepas que <span class="resaltado">te quiero muchísimo</span>, que aprecio cada pequeño instante que compartimos y que me hace feliz haberte conocido.
+
+Espero que esto sea apenas el comienzo de una amistad que tenga muchísimas páginas por escribir. Me gustaría conocerte más, descubrir tus gustos, escuchar tus historias, saber qué cosas te hacen feliz y compartir contigo muchos más recuerdos.
+
+Y hay algo más que quisiera decirte: <span class="resaltado">me gustas.</span>
+
+No quería dejar pasar la oportunidad de expresarte ese cariño que ha ido creciendo. No espero apresurar nada ni cambiar lo bonito que estamos construyendo. Simplemente quería ser sincero contigo y dejarte saber lo que siento.
+
+Quizá todavía nos falte mucho por conocer el uno del otro, pero me gustaría que el tiempo nos permitiera descubrirlo.
+
+Gracias por coincidir conmigo, por regalarme un poquito de tu tiempo y por convertirte en una personita que me alegra encontrar en mis días.
+
+    </div>
+
+
+    <div class="separador">♡ · · · ♡</div>
+
+
+    <!-- GALERÍA DE FOTOGRAFÍAS -->
+
+    <h2 class="titulo">Pequeños recuerdos</h2>
+
+    <div class="galeria">
+
+        <div>
+            <img src="foto1.jpg" class="foto" alt="Fotografía 1">
+            <p class="pie-foto">Un momento para recordar.</p>
+        </div>
+
+        <div>
+            <img src="foto2.jpg" class="foto" alt="Fotografía 2">
+            <p class="pie-foto">De esos pequeños instantes.</p>
+        </div>
+
+        <div>
+            <img src="foto3.jpg" class="foto" alt="Fotografía 3">
+            <p class="pie-foto">Me alegra compartirlos contigo.</p>
+        </div>
+
+        <div>
+            <img src="foto4.jpg" class="foto" alt="Fotografía 4">
+            <p class="pie-foto">Por muchos más.</p>
+        </div>
+
+    </div>
+
+
+    <!-- CANCIÓN -->
+
+    <section class="musica">
+
+        <h3>Una canción para ti.</h3>
+
+        <p>
+            Porque hay sentimientos que también
+            pueden contarse a través de la música.
+        </p>
+
+        <audio controls>
+            <source src="cancion.mp3" type="audio/mpeg">
+            Tu navegador no soporta audio.
+        </audio>
+
+    </section>
+
+
+    <!-- DESPEDIDA -->
+
+    <div class="separador">✦ · · · ✦</div>
+
+    <div class="mensaje">
+
+Si pudiera pedirle algo al tiempo, sería que nos permitiera compartir muchas más conversaciones, canciones, fotografías y momentos.
+
+No sé qué nos depare el futuro, pero sí sé que me gustaría seguir coincidiendo contigo.
+
+<span class="resaltado">Me gustas, te quiero y me alegra muchísimo tenerte en mi vida.</span>
+
+    </div>
+
+    <div class="firma">
+        Con mucho cariño,<br>
+        Owen ♡
+    </div>
+
+    <div class="final">♥</div>
+
+    <p class="nota">
+        Esta carta es solamente un pequeño recordatorio de lo mucho que te aprecio.
+    </p>
+
+</main>
+
+
+<script>
+
+function abrirCarta() {
+
+    document.getElementById("portada").style.display = "none";
+
+    document.getElementById("carta").style.display = "block";
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+}
+
+</script>
+
+</body>
+</html>
